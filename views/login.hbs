@@ -1,0 +1,66 @@
+<head>
+  <style>
+        {{!-- estilo da tela de login --}}
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .form-signin {
+            max-width: 500px;
+            padding: 15px;
+        }
+
+        .form-signin .form-floating:focus-within {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    </style>
+</head>
+<div>
+    <main class="form-signin w-100 mt-2 m-auto center">
+        <div class="text-center">
+            <i class="fa-brands fa-strava fa-4x"></i>
+            <h1 class="mb-3 fw-normal">SIGMA PRL</h1>
+            <h4>Área de Login</h4>
+            {{>msg_login}}
+          </div>
+        <form action="/authenticate" method="post">
+          <div class="form-floating mt-5">
+            <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+            <label for="floatingInput">Seu endereço de email:</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <label for="floatingPassword">Sua senha:</label>
+          </div>
+          
+          <div class="checkbox mt-3 mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> lembrar-me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-success" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Fazer Login</button>
+          <p class="mt-5 mb-3 text-muted text-center">©Todos direitos reservados <strong>SIGMA PRL</strong>-2022</p>
+        </form>
+    </main>
+</div>

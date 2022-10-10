@@ -1,0 +1,29 @@
+<div class="bg-light p-5 rounded mt-3">
+    <h1><i class="fa-solid fa-user-plus"></i> Cadastrar Usuário</h1>
+    <br>
+    {{>msg_register}}
+    <form action="/register" method="post">
+        <div class="row">
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user">&nbsp;</i></span>
+                <input type="text" class="form-control" placeholder="Nome do usuário: " aria-label="nome" name="nome" id="nome" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone">&nbsp;</i></span>
+                <input value="(+55)" type="tel" class="form-control" placeholder="Número do usuário" aria-label="telefone" name="telefone" id="telefone" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-telegram">&nbsp;</i></span>
+                <input type="text" class="form-control" placeholder="Id Telegram: " aria-label="id_telegram" name="id_telegram" id="id_telegram" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days">&nbsp;</i></span>
+                <input type="number" class="form-control" placeholder="Dias de acesso:" aria-label="vencimento" name="vencimento" id="vencimento" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-3">
+                <button class="md-3 p-3 w-100 btn btn-success"><i class="fa-solid fa-arrow-up-right-from-square">&nbsp;</i>Cadastrar</button>
+            </div>
+        </div>
+    </form>
+    <br>
+</div>

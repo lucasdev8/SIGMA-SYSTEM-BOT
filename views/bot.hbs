@@ -1,0 +1,21 @@
+<div class="bg-light p-5 rounded mt-3">
+    <div class="row">
+        {{>msg_bot}}
+        <h1><i class="fa-solid fa-robot"></i> Bot de Sinal</h1>
+        <form action="/bot" method="post">
+            <label class="mb-3" for="type-user">Opções de envio</label>
+            <select class="form-control mb-3" name="typeUser" id="type-user" placeholder="ok">
+                <option value="actives">Somente para ativos</option>
+                <option value="all">Todos usuários</option>
+                <option value="inactives">Somente para inativos</option>
+            </select>
+            <div class="md-4 mb-4 wd-4">
+                <label for="exampleFormControlTextarea1" class="form-label">Mensagem que o Bot enviara: </label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="msg" placeholder="Digite aqui a mensagem: 'Aceita Tags HTML: <i></i>, <strong></strong>, <b></b>, <code></code>' " required></textarea>
+            </div>
+            <div class="md-3">
+                <button class="md-3 p-3 w-100 btn btn-success"><i class="fa-solid fa-paper-plane"></i> Enviar Sinal</button>
+            </div>
+        </form>
+    </div>
+</div>

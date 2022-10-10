@@ -1,0 +1,40 @@
+
+<div class="px-3 py-2 text-bg-dark">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+            <h2>SIGMA PRL</h2>
+          </a>
+
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+              <a href="/index" class="nav-link {{#if NavActiveIndex}} text-white {{/if}}">
+                <i class="fa-solid fa-house fa-2x"><use xlink:href="/index"></use>&nbsp;</i>INICIO
+              </a>
+            </li>
+            <li>
+              <a href="/cadastro" class="nav-link {{#if NavActiveRegister}} text-white {{/if}}">
+                <i class="fa-solid fa-user fa-2x"><use xlink:href="#speedometer2"></use>&nbsp;</i>CADASTRAR
+              </a>
+            </li>
+            <li>
+              <a href="/users" class="nav-link {{#if NavActiveUsers}} text-white {{/if}}">
+                <i class="fa-solid fa-users fa-2x"><use xlink:href="#table"></use>&nbsp;</i>USUÁRIOS
+              </a>
+            </li>
+            <li>
+              <a href="/bot-telegram" class="nav-link {{#if NavActiveBot}} text-white {{/if}}">
+                <i class="fa-solid fa-robot fa-2x"><use xlink:href=""></use>&nbsp;</i>BOT TELEGRAM
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+{{!-- <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/index" class="nav-link {{#if NavActiveCad}} active {{/if}}" aria-current="page">Cadastrar</a></li>
+        <li class="nav-item"><a href="/users" class="nav-link {{#if NavActiveUsers}} active {{/if}}">Listar Usuários</a></li>
+        <li class="nav-item"><a href="/send-signal" class="nav-link {{#if NavActiveSignal}} active {{/if}}">Enviar Sinal(BOT)</a></li>
+    </ul>
+</header> --}}

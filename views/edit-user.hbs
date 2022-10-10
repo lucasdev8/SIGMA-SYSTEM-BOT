@@ -1,0 +1,35 @@
+{{#unless error}}
+<div class="bg-light p-5 rounded mt-3">
+    <h1>Editar Dados do Usuário</h1>
+    <form action="/update-user" method="post">
+        <div class="row bg-white">
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user">&nbsp;</i></span>
+                <input type="hidden" value="{{id}}" name="id">
+                <input value="{{nome}}"type="text" class="form-control" placeholder="Nome do usuário: " aria-label="nome" name="nome" id="nome" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone">&nbsp;</i></span>
+                <input value="{{telefone}}" type="tel" class="form-control" placeholder="Número do usuário" aria-label="telefone" name="telefone" id="telefone" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-brands fa-telegram">&nbsp;</i></span>
+                <input value="{{id_telegram}}" type="text" class="form-control" placeholder="Id Telegram: " aria-label="id_telegram" name="id_telegram" id="id_telegram" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-calendar-days">&nbsp;</i></span>
+                <input value="{{vencimento}}" type="number" class="form-control" placeholder="Dias de acesso:" aria-label="vencimento" name="vencimento" id="vencimento" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-3">
+                <button class="md-3 p-3 w-100 btn btn-warning"><i class="fa-solid fa-floppy-disk">&nbsp;</i>Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
+{{else}}
+<div class="card bg-danger text-white">
+    <div class="card-body">
+        Houve um problema: {{problema}}
+    </div>
+</div>
+{{/unless}}
