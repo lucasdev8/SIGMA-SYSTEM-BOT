@@ -1,15 +1,12 @@
-const Usuario = require('../models/Usuario')
+const Admin = require('./Admin')
 
 async function create() {
 
-    const res = await Usuario.create({
-        nome: 'Lucas',
-        telefone: '98985391411',
-        id: '7637122',
-        vencimento: 1,
-        ativo: true
+    const res = await Admin.create({
+        email: 'lucas@gmail.com',
+        password: '12345',
+        qtd_msg_bot: 0
     })
-
     console.log(res)
 }
 

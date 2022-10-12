@@ -1,4 +1,5 @@
-const Usuario = require('../models/Usuario')
+const Admin = require('../models/Admin');
+const Usuario = require('../models/Usuario');
 
 class Pages {
     login(req, res) {
@@ -29,27 +30,52 @@ class Pages {
     }
 
     async index(req, res) {
-        let totalUsers = ''
-        await Usuario.findAll().then(resBD => {
-            totalUsers = resBD.map(users => users.toJSON())
-        })
+
+        let totalUsers;
+        let qtd_msg_bot;
+        let usersInativos = []
+
+        //query to fetch number of messages via telegram bot
+        await Admin.findAll({ where: { id: 1}})
+            .then(admin => qtd_msg_bot = admin.map(adm => adm.toJSON()))
+            .catch(err => console.error(err));
         
-        res.render('index', {NavActiveIndex: true, isLoggedIn: true, totalUsers: totalUsers.length})
-    }
+        //query to get total users
+        await Usuario.findAll()
+            .then(resBD => totalUsers = resBD.map(users => users.toJSON()))
+            .catch(err => console.error(err));
+
+        //mapping to get only inactive users
+        totalUsers.map((user) => {
+            if (user.ativo === false) {
+                usersInativos.push(user)
+            }
+        })
+
+        res.render('index', 
+            {
+                NavActiveIndex: true, 
+                isLoggedIn: true, 
+                totalUsers: totalUsers.length,
+                usersInativos: usersInativos.length,
+                qtd_msg_bot: qtd_msg_bot[0].qtd_msg_bot
+            }
+        );
+    };
 
     async users(req, res) {
         let databaseUsers = ''
 
         await Usuario.findAll().then(resBd => {
             databaseUsers = resBd.map(users => users.toJSON())
-        })
+        });
 
         if (databaseUsers.length > 0) {
             res.render('users',{NavActiveUsers: true, table: true, usuarios: databaseUsers, isLoggedIn: true});
         } else {
             res.render('users',{NavActiveUsers: true, table: false, isLoggedIn: true})
-        }
-    }
+        };
+    };
 
     bot(req, res) {
 
@@ -66,12 +92,12 @@ class Pages {
                 {
                     NavActiveBot: true, 
                     isLoggedIn: true
-                })
-
-    }
+                }
+        );
+    };
 
     async editUser(req, res) {
-        let id = req.body.id
+        let id = req.body.id;
 
         await Usuario.findByPk(id)
             .then((data) => {
@@ -92,10 +118,9 @@ class Pages {
                     isLoggedIn: true,
                     error: true,
                     problema: 'Ocorreu um erro!'
-                })
-            })
-    }
-
-}
+                });
+            });
+    };
+};
 
 module.exports = new Pages()

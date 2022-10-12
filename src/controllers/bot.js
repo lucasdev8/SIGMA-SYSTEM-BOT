@@ -1,6 +1,7 @@
 require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const Usuario = require('../models/Usuario');
+const Admin = require('../models/Admin')
 
 const token = process.env.BOT_TOKEN;
 const bot = new TelegramBot(token, {polling: true});
@@ -14,6 +15,7 @@ const botController = async (req, res) => {
     const usersAtivos = [];
     const usersInativos = [];
     let allUsers;
+    let numberOfMessages;
 
     await Usuario.findAll()
         .then(resBd => {
@@ -46,6 +48,17 @@ const botController = async (req, res) => {
         })
 
     }
+
+    //every time the admin sends a message via bot, +1 is inserted in the qtd_msg_bot column to count sent messages
+    await Admin.findAll({where: { id: 1}})
+        .then(async (admin) => {
+
+            numberOfMessages = admin.map(user => user.toJSON())
+            await Admin.update({
+                qtd_msg_bot: numberOfMessages[0].qtd_msg_bot + 1
+            }, { where: { id: numberOfMessages[0].id}})
+
+        })
 
     req.session.success = true
     return res.redirect('/bot-telegram');
