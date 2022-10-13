@@ -28,8 +28,9 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a href="/perfil-edit" class="dropdown-item" style="color: green;"><i class="fa-regular fa-pen-to-square"></i> Editar Dados</a>
-                            
-                            <a href="#" class="dropdown-item" style="color: red;"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+                            <form action="/logout" method="post">
+                                <button class="dropdown-item" style="color: red;"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+                            </form>
                         </div>
                     </li>
                 </ul>

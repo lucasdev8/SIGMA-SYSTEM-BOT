@@ -4,7 +4,7 @@ const config = require('../config/auth')
 
 class LoginCrontroller {
 
-    async index(req, res) {
+    async login(req, res) {
         const { email, password } = req.body
         
         const adminExist = await Admin.findOne({ where: {email} })
@@ -35,6 +35,14 @@ class LoginCrontroller {
 
        return res.redirect('/index')
     }
+
+    logout(req, res) {
+
+        res.cookie('token', null, { maxAge: 5*60*1000, httpOnly: true, sameSite: 'strict' });
+        
+        return res.redirect('/');
+
+    }
 }
 
-module.exports = new LoginCrontroller()
+module.exports = new LoginCrontroller();

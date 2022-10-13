@@ -5,7 +5,7 @@ const AuthMiddleware = require('../middlewares/authenticate');
 
 const pages = require('../controllers/pages');
 const utils = require('../controllers/utils');
-const login = require('../controllers/login'); //controller authenticate
+const auth = require('../controllers/login'); //controller authenticate
 const botController = require('../controllers/bot');
 
 // CONTROLLERS PAGES
@@ -25,7 +25,9 @@ router.get('/perfil-edit', AuthMiddleware, pages.perfilEdit);
 
 // CONTROLLERS UTILS
 
-router.post('/authenticate', login.index) //PUBLIC ROUTER
+router.post('/authenticate', auth.login) //PUBLIC ROUTER
+
+router.post('/logout', AuthMiddleware, auth.logout);
 
 router.post('/register', AuthMiddleware, utils.registerUser);
 
