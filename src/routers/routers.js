@@ -21,6 +21,8 @@ router.get('/bot-telegram', AuthMiddleware, pages.bot);
 
 router.post('/edit-user', AuthMiddleware, pages.editUser);
 
+router.get('/perfil-edit', AuthMiddleware, pages.perfilEdit);
+
 // CONTROLLERS UTILS
 
 router.post('/authenticate', login.index) //PUBLIC ROUTER
@@ -36,5 +38,7 @@ router.post('/suspender-user', AuthMiddleware, utils.suspendUser);
 router.post('/reativar-user', AuthMiddleware, utils.reactivateUser);
 
 router.post('/bot', AuthMiddleware, botController); //bot controller
+
+router.post('/update-admin', AuthMiddleware, utils.updateAdminData);
 
 module.exports = router

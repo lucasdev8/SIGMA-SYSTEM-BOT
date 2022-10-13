@@ -1,0 +1,21 @@
+<div class="bg-light p-5 rounded mt-3">
+    {{>msg_edit-admin}}
+    <h1><i class="fa-solid fa-user-pen"></i> Editar meus dados</h1>
+    <br>
+    <form action="/update-admin" method="post">
+        <div class="row">
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
+                <input value="{{email}}" type="email" class="form-control" placeholder="Seu email: " aria-label="nome" name="email" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-4 mb-4 input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-key"></i></span>
+                <input value="{{password}}" type="password" class="form-control" placeholder="Sua senha:" aria-label="telefone" name="password" aria-describedby="basic-addon1">
+            </div>
+            <div class="md-3">
+                <button class="md-3 p-3 w-100 btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+            </div>
+        </div>
+    </form>
+    <br>
+</div>

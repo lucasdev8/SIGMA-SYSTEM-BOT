@@ -1,0 +1,17 @@
+{{#if success}}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong><i class="fa-regular fa-circle-check"></i> Dados salvos com sucesso!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{{/if}}
+
+{{#if error}}
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong><i class="fa-solid fa-circle-exclamation"></i> Ocorreu um erro inesperado!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{{/if}}

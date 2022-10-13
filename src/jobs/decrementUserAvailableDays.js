@@ -4,8 +4,8 @@ const Usuario = require('../models/Usuario');
 // every day of the week performs this task at 00:00 (midnight)
 const rule = new schedule.RecurrenceRule();
 rule.dayOfWeek = [0, new schedule.Range(0, 6)];
-rule.hour = 10;
-rule.minute = 35;
+rule.hour = 11;
+rule.minute = 59;
 
     schedule.scheduleJob(rule, async () => {
 

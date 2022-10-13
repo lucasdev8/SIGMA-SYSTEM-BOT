@@ -1,4 +1,5 @@
 const Usuario = require('../models/Usuario');
+const Admin = require('../models/Admin');
 
 class Utils {
     authenticate(req, res) {
@@ -89,6 +90,22 @@ class Utils {
 
         return res.redirect('/users');
 
+    }
+
+    async updateAdminData(req, res) {
+
+        const { email, password} = req.body;
+    
+        await Admin.update({
+
+            email: email,
+            password: password
+
+        }, {where: { id: 1}})
+            .then(() => req.session.success = true)
+            .catch(() => req.session.errors = true);
+
+        return res.redirect('/perfil-edit');
     }
 }
 

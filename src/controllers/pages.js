@@ -121,6 +121,50 @@ class Pages {
                 });
             });
     };
+
+    async perfilEdit(req, res) {
+        let admin, success, error;
+
+        await Admin.findAll({where: {id: 1}})
+            .then((data) => {
+                admin = data.map(user => user.toJSON())
+            })
+        
+        if (req.session.success) {
+            success = req.session.sucess;
+            req.session.success = '';
+
+            return res.render('perfil-edit', 
+                {
+                    isLoggedIn: true, 
+                    email: admin[0].email, 
+                    password: admin[0].password,
+                    success: true
+                }
+            );
+        }
+        if (req.session.errors) {
+            error = req.session.errors;
+            req.session.errors = '';
+
+            return res.render('perfil-edit', 
+                {
+                    isLoggedIn: true, 
+                    email: admin[0].email, 
+                    password: admin[0].password,
+                    error: true
+                }
+            );
+        }
+
+        return res.render('perfil-edit', 
+            {
+                isLoggedIn: true, 
+                email: admin[0].email, 
+                password: admin[0].password,
+            }
+        );
+    };
 };
 
 module.exports = new Pages()
