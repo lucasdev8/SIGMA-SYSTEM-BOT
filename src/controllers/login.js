@@ -1,6 +1,6 @@
-const Admin = require('../models/Admin')
-const jwt = require('jsonwebtoken')
-const config = require('../config/auth')
+const Admin = require('../models/Admin');
+const jwt = require('jsonwebtoken');
+const config = require('../config/auth');
 
 class LoginCrontroller {
 
@@ -34,7 +34,7 @@ class LoginCrontroller {
        res.cookie('token', token, { maxAge: 5*60*1000, httpOnly: true, sameSite: 'strict' });
 
        return res.redirect('/index')
-    }
+    };
 
     logout(req, res) {
 
@@ -42,7 +42,7 @@ class LoginCrontroller {
         
         return res.redirect('/');
 
-    }
+    };
 }
 
 module.exports = new LoginCrontroller();
