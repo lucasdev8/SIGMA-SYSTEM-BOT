@@ -34,10 +34,10 @@ app.use(router);
 
 app.listen(port, () => console.log('Aplicação Rodando em http://localhost ...'));
 
-https.createServer({ //ssl certification setup
-    cert: fs.readFileSync('src/ssl/code.crt'),
-    key: fs.readFileSync('src/ssl/code.key')
-}, app).listen(443, () => console.log('Protocolo HTTPS está rodando: https://localhost'));
+// https.createServer({ //ssl certification setup
+//     cert: fs.readFileSync('src/ssl/code.crt'),
+//     key: fs.readFileSync('src/ssl/code.key')
+// }, app).listen(443, () => console.log('Protocolo HTTPS está rodando: https://localhost'));
 
 //running the application's main job as a sub-process
 exec('node src/jobs/decrementUserAvailableDays.js');
