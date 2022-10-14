@@ -1,6 +1,7 @@
 //-----------------------------------//
 //  Desenvolvido por https://github.com/lucasdev8
 //-----------------------------------//
+require('dotenv').config;
 const express = require('express');
 const cors = require('cors');
 const hbs = require('express-handlebars');
@@ -10,6 +11,7 @@ const cookieParser = require('cookie-parser');
 const { exec } = require('child_process');
 const fs = require('fs');
 const https = require('https');
+const port = process.env.PORT
 
 const app = express();
 
@@ -30,7 +32,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(router);
 
-app.listen(80, () => console.log('Aplicação Rodando em http://localhost ...'));
+app.listen(port, () => console.log('Aplicação Rodando em http://localhost ...'));
 
 https.createServer({ //ssl certification setup
     cert: fs.readFileSync('src/ssl/code.crt'),
