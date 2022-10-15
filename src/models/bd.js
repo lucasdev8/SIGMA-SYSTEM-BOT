@@ -1,6 +1,15 @@
+require('dotenv').config()
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('system-sigma', 'root', 'lucas', {
-    host: '127.0.0.1',
+
+const bdName = process.env.DB_NAME;
+const bdUsername = process.env.DB_USERNAME;
+const bdPassword = process.env.DB_PASSWORD;
+const bdHost = process.env.DB_HOST;
+const bdPort = process.env.DB_PORT;
+
+const sequelize = new Sequelize(bdName, bdUsername, bdPassword, {
+    host: bdHost,
+    port: bdPort,
     dialect: 'mysql',
     define: {
         charset: 'utf8',
@@ -10,12 +19,12 @@ const sequelize = new Sequelize('system-sigma', 'root', 'lucas', {
     logging: false
 })
 
-// sequelize.authenticate()
-// .then(() => {
-//     console.log('Conectado no banco com sucesso')
-// })
-// .catch((err) => {
-//     console.log(err)
-// })
+sequelize.authenticate()
+.then(() => {
+    console.log('Conectado no banco com sucesso')
+})
+.catch((err) => {
+    console.log(err)
+})
 
 module.exports = { Sequelize, sequelize }

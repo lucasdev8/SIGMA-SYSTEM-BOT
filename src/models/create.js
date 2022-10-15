@@ -1,5 +1,12 @@
 const Admin = require('./Admin')
 
+// async function getUsers() {
+//     const res = await Admin.findAll()
+//     console.log(res)
+// }
+
+// getUsers()
+
 async function create() {
 
     const res = await Admin.create({

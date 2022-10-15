@@ -19,8 +19,15 @@ const Admin = db.sequelize.define('admin', {
     qtd_msg_bot: {
         type: db.Sequelize.INTEGER,
         allowNull: false
-    }
-    
+    },
+    // createdAt: {
+    //     type: db.Sequelize.STRING,
+    //     allowNull: false
+    // },
+    // updatedAt: {
+    //     type: db.Sequelize.STRING,
+    //     allowNull: false
+    // }
 }) 
 
 Admin.sync()
