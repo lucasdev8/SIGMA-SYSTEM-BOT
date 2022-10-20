@@ -1,4 +1,4 @@
-const db = require('./bd')
+const db = require('./connectionDataBase')
 
 const Admin = db.sequelize.define('admin', {
 
