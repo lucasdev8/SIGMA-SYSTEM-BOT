@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 const { exec } = require('child_process');
 const fs = require('fs');
 const https = require('https');
-const port = 3000//process.env.PORT
+const port = process.env.PORT
 
 const app = express();
 
